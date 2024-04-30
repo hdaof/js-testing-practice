@@ -1,17 +1,15 @@
 import {extractEnteredNumberValues} from "./src/parser.js";
 import {calculateResult} from "./src/math.js";
-import {generateResultText, outputResult} from "./output.js";
+import {generateResultText} from "./src/output.js";
+import {outputResult} from "./src/output.js";
 
 const form = document.querySelector("form");
 
 function formSubmitHandler(event) {
   event.preventDefault();
-  const numberValues = extractEnteredNumberValues(form);
-
-  const result = calculateResult(numberValues);
-
+  const numberInputs = extractEnteredNumberValues(form);
+  const result = calculateResult(numberInputs);
   const resultText = generateResultText(result);
-
   outputResult(resultText);
 }
 
